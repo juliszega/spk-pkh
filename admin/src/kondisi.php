@@ -53,7 +53,7 @@ if($data['k1'] == 3){
 	$k1 = "13 Tahun";
 	$k1 = "12 Tahun";
 	$k1 = "11 Tahun";
-	$k1 = "10 Tahun";
+	
 }
 
 if($data['k2'] == 3){
