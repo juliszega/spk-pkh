@@ -64,6 +64,7 @@ while($dData = mysqli_fetch_array($qData)){
                         <thead>
                             <tr>
                                 <th class="text-center">No.</th>
+                                <th class="text-center">NIK</th>
                                 <th class="text-center">Nama Warga</th>
                                 <?php
                                 $qry  = mysqli_query($koneksi, "SELECT * FROM data_kriteria");
@@ -88,6 +89,7 @@ while($dData = mysqli_fetch_array($qData)){
                               ?>
                             <tr class="text-center">
                                 <td><?= $no++ ?></td>
+                                <td><?= $data['NIK'] ?></td>
                                 <td><?= $data['nama_warga'] ?></td>
                                 <td><?= $data['k1'] ?></td>
                                 <td><?= $data['k2'] ?></td>
