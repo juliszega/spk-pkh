@@ -16,7 +16,20 @@
                             <tr>
                                 <th class="text-center">No.</th>
                                 <th class="text-center">NIK</th>
+                                <th class="text-center">No KK</th>
                                 <th class="text-center">Nama Warga</th>
+                                <th class="text-center">Tempat Lahir</th>
+                                <th class="text-center">Tanggal Lahir</th>
+                                <th class="text-center">Ibu Kandung</th>
+                                <th class="text-center">jenis Kelamin</th>
+                                <th class="text-center">jenis Pekerjaan</th>
+                                <th class="text-center">Alamat</th>
+                                <th class="text-center">RT</th>
+                                <th class="text-center">RW</th>
+                                <th class="text-center">Provinsi</th>
+                                <th class="text-center">Kabupaten</th>
+                                <th class="text-center">Kecamatan</th>
+                                <th class="text-center">Kelurahan</th>
                                 <?php
                                 $qry  = mysqli_query($koneksi, "SELECT * FROM data_kriteria");
                                 while($dt = mysqli_fetch_array($qry)){
@@ -36,7 +49,20 @@
                             <tr class="text-center">
                                 <td><?= $no++ ?></td>
                                 <td><?= $data['NIK'] ?></td>
+                                <td><?= $data['no_kk'] ?></td>
                                 <td><?= $data['nama_warga'] ?></td>
+                                <td><?= $data['tempat_lahir'] ?></td>
+                                <td><?= $data['tanggal_lahir'] ?></td>
+                                <td><?= $data['ibu_kandung'] ?></td>
+                                <td><?= $data['jenis_kelamin'] ?></td>
+                                <td><?= $data['jenis_pekerjaan'] ?></td>
+                                <td><?= $data['alamat'] ?></td>
+                                <td><?= $data['rt'] ?></td>
+                                <td><?= $data['rw'] ?></td>
+                                <td><?= $data['provinsi'] ?></td>
+                                <td><?= $data['kabupaten'] ?></td>
+                                <td><?= $data['kecamatan'] ?></td>
+                                <td><?= $data['kelurahan'] ?></td>
                                 <td><?= $k1 ?></td>
                                 <td><?= $k2 ?></td>
                                 <td><?= $k3 ?></td>

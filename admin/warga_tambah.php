@@ -3,16 +3,33 @@ include 'src/header.php';
 
 if(isset($_POST['simpan'])){
   $nik  = $_POST['NIK'];
+  $nokk  = $_POST['no_kk'];
   $nama  = $_POST['nama_warga'];
+  $tl  = $_POST['tempat_lahir'];
+  $tgl  = $_POST['tanggal_lahir'];
+  $ibu  = $_POST['ibu_kandung'];
+  $jk  = $_POST['jenis_kelamin'];
+  $jp  = $_POST['jenis_pekerjaan'];
+  $alamat  = $_POST['alamat'];
+  $rt  = $_POST['rt'];
+  $rw  = $_POST['rw'];
+  $prov  = $_POST['provinsi'];
+  $kab  = $_POST['kabupaten'];
+  $kec  = $_POST['kecamatan'];
+  $kel  = $_POST['kelurahan'];  
   $k1    = $_POST['k1'];
   $k2    = $_POST['k2'];
   $k3    = $_POST['k3'];
   $k4    = $_POST['k4'];
   $k5    = $_POST['k5'];
 
-  $simpan = mysqli_query($koneksi, "INSERT INTO data_warga VALUES('','$nik','$nama','$k1','$k2','$k3','$k4','$k5')");
-  echo "<script>alert('Data Berhasil Di Simpan');window.location='data_warga.php'</script>";
-
+  $simpan = mysqli_query($koneksi, "SELECT * FROM data_warga WHERE NIK = '$nik'") or die (mysqli_error($con));
+  if(mysqli_num_rows($simpan) > 0) {
+    echo "<script>alert('NIK Sudah Digunakan!');window.location='warga_tambah.php'</script>";
+  } else {
+        mysqli_query($koneksi, "INSERT INTO data_warga VALUES('','$nik','$nokk','$nama','$tl','$tgl','$ibu','$jk','$jp','$alamat','$rt','$rw','$prov','$kab','$kec','$kel','$k1','$k2','$k3','$k4','$k5')");
+        echo "<script>alert('Data Berhasil Di Simpan');window.location='data_warga.php'</script>";
+  }
 }
 ?>
                     
@@ -26,13 +43,69 @@ if(isset($_POST['simpan'])){
                 <h4 class="card-title">Tambah Data Warga</h4>
                     <div class="table-responsive">
                         <form action="" method="POST">
-                        <div class="form-group">
+                            <div class="form-group">
                               <label class="form-control-label" for="NIK">NIK</label>
-                              <input type="text" class="form-control" name="NIK" placeholder="Input Nik Warga">
+                              <input type="text" class="form-control" name="NIK" placeholder="Input Nik Warga"  minlength="16" maxlength="16"/>
+                             </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="no_kk">No KK</label>
+                              <input type="number" class="form-control" name="no_kk" placeholder="Input No KK">
                             </div>
                             <div class="form-group">
                               <label class="form-control-label" for="nama_warga">Nama Warga</label>
                               <input type="text" class="form-control" name="nama_warga" placeholder="Input Nama Lengkap Warga" required>
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="tempat_lahir">Tempat Lahir</label>
+                              <input type="text" class="form-control" name="tempat_lahir" placeholder="masukkan tempat lahir">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="tanggal_lahir">Tanggal Lahir</label>
+                              <input type="date" class="form-control" name="tanggal_lahir" placeholder="masukkan tanggal lahir">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="ibu_kandung">Ibu Kandung</label>
+                              <input type="text" class="form-control" name="ibu_kandung" placeholder="Ibu Kandung">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="jenis_kelamin">Jenis Kelamin</label>
+                              <select class="form-control" name="jenis_kelamin" required>
+                                <option>-----</option>
+                                <option >Laki-laki</option>
+                                <option>Perempuan</option>
+                              </select>    
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="jenis_pekerjaan">Jenis Pekerjaan</label>
+                              <input type="text" class="form-control" name="jenis_pekerjaan" placeholder="Jenis Pekerjaan">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="alamat">Alamat</label>
+                              <input type="text" class="form-control" name="alamat" placeholder="Alamat">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="rt">RT</label>
+                              <input type="text" class="form-control" name="rt" placeholder="RT">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="rw">RW</label>
+                              <input type="text" class="form-control" name="rw" placeholder="RW">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="provinsi">Provinsi</label>
+                              <input type="text" class="form-control" name="provinsi" placeholder="masukkan Provinsi">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="kabupaten">Kabupaten</label>
+                              <input type="text" class="form-control" name="kabupaten" placeholder="masukkan kabupaten">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="kecamatan">Kecamatan</label>
+                              <input type="text" class="form-control" name="kecamatan" placeholder="masukkan kecamatan">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="kelurahan">Kelurahan</label>
+                              <input type="text" class="form-control" name="kelurahan" placeholder="masukkan kelurahan">
                             </div>
                             <?php
                               $namaKriteria = array();
