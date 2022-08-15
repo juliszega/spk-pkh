@@ -122,4 +122,5 @@ if($data['k5'] == 3){
 }elseif($data['k5'] == 1){
 	$k5 = "Tidak Ada";
 }
+
 ?>

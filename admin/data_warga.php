@@ -22,8 +22,10 @@
                                 <th class="text-center">Tanggal Lahir</th>
                                 <th class="text-center">Ibu Kandung</th>
                                 <th class="text-center">jenis Kelamin</th>
+                                <th class="disabled-sorting text-center">Actions</th>
                                 <th class="text-center">jenis Pekerjaan</th>
                                 <th class="text-center">Alamat</th>
+                                
                                 <th class="text-center">RT</th>
                                 <th class="text-center">RW</th>
                                 <th class="text-center">Provinsi</th>
@@ -36,7 +38,7 @@
                                   echo "<th class='text-center'>$dt[nama_kriteria]</th>";
                                 }
                                 ?>
-                                <th class="disabled-sorting text-center">Actions</th>
+                               
                             </tr>
                         </thead>
                         <tbody>
@@ -55,8 +57,13 @@
                                 <td><?= $data['tanggal_lahir'] ?></td>
                                 <td><?= $data['ibu_kandung'] ?></td>
                                 <td><?= $data['jenis_kelamin'] ?></td>
+                                <td>
+                                  <a href="warga_edit.php?id_warga=<?php echo $data['id_warga']; ?>"><button type="button" class='d-sm-inline-block btn btn-sm btn-primary shadow-sm'><span aria-hidden="true"></span>Edit</button></a>
+                                  <a href="warga_hapus.php?id_warga=<?php echo $data['id_warga']; ?>"><button type="button" class='d-sm-inline-block btn btn-sm btn-danger shadow-sm'><span aria-hidden="true"></span>Delete</button></a>
+                              </td>
                                 <td><?= $data['jenis_pekerjaan'] ?></td>
                                 <td><?= $data['alamat'] ?></td>
+                                
                                 <td><?= $data['rt'] ?></td>
                                 <td><?= $data['rw'] ?></td>
                                 <td><?= $data['provinsi'] ?></td>
@@ -68,10 +75,7 @@
                                 <td><?= $k3 ?></td>
                                 <td><?= $data['k4'] ?></td>
                                 <td><?= $k5 ?></td>
-                                <td>
-                                  <a href="warga_edit.php?id_warga=<?php echo $data['id_warga']; ?>"><button type="button" class='d-sm-inline-block btn btn-sm btn-primary shadow-sm'><span aria-hidden="true"></span>Edit</button></a>
-                                  <a href="warga_hapus.php?id_warga=<?php echo $data['id_warga']; ?>"><button type="button" class='d-sm-inline-block btn btn-sm btn-danger shadow-sm'><span aria-hidden="true"></span>Delete</button></a>
-                              </td>
+                               
                             </tr>
                             <?php } ?>
                         </tbody>

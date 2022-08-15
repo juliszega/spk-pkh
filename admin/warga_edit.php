@@ -3,14 +3,27 @@ include 'src/header.php';
 
 if(isset($_POST['simpan'])){
   $nik  = $_POST['NIK'];
+  $nokk  = $_POST['no_kk'];
   $nama  = $_POST['nama_warga'];
+  $tl  = $_POST['tempat_lahir'];
+  $tgl  = $_POST['tanggal_lahir'];
+  $ibu  = $_POST['ibu_kandung'];
+  $jk  = $_POST['jenis_kelamin'];
+  $jp  = $_POST['jenis_pekerjaan'];
+  $alamat  = $_POST['alamat'];
+  $rt  = $_POST['rt'];
+  $rw  = $_POST['rw'];
+  $prov  = $_POST['provinsi'];
+  $kab  = $_POST['kabupaten'];
+  $kec  = $_POST['kecamatan'];
+  $kel  = $_POST['kelurahan'];  
   $k1    = $_POST['k1'];
   $k2    = $_POST['k2'];
   $k3    = $_POST['k3'];
   $k4    = $_POST['k4'];
   $k5    = $_POST['k5'];
 
-  $simpan = mysqli_query($koneksi, "UPDATE data_warga SET NIK = '$nik', nama_warga = '$nama', k1 = '$k1', k2 = '$k2', k3 = '$k3', k4 = '$k4', k5 = '$k5' WHERE id_warga = '$_GET[id_warga]'");
+  $simpan = mysqli_query($koneksi, "UPDATE data_warga SET NIK = '$nik', no_kk = '$nokk', nama_warga = '$nama', tempat_lahir = '$tl', tanggal_lahir = '$tgl', ibu_kandung = '$ibu', jenis_kelamin = '$jk', jenis_pekerjaan = '$jp', k1 = '$k1', k2 = '$k2', k3 = '$k3', k4 = '$k4', k5 = '$k5' WHERE id_warga = '$_GET[id_warga]'");
   echo "<script>alert('Data Berhasil Di Simpan');window.location='data_warga.php'</script>";
 
 }
@@ -36,8 +49,180 @@ if(isset($_POST['simpan'])){
                               <input type="text" class="form-control" name="NIK" value="<?php echo $data['NIK'] ?>" placeholder="Input Nik Warga" required>
                             </div>
                             <div class="form-group">
+                              <label class="form-control-label" for="no_kk">No KK</label>
+                              <input type="number" class="form-control" name="no_kk" value="<?php echo $data['no_kk'] ?>" placeholder="Input No KK">
+                            </div>
+                            <div class="form-group">
                               <label class="form-control-label" for="nama_warga">Nama Warga</label>
-                              <input type="text" class="form-control" name="nama_warga" value="<?php echo $data['nama_warga'] ?>" placeholder="Input Nama Warga" required>
+                              <input type="text" class="form-control" name="nama_warga" value="<?php echo $data['nama_warga'] ?>" placeholder="Input Nama Lengkap Warga" required>
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="tempat_lahir">Tempat Lahir</label>
+                              <input type="text" class="form-control" name="tempat_lahir" value="<?php echo $data['tempat_lahir'] ?>" placeholder="masukkan tempat lahir">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="tanggal_lahir">Tanggal Lahir</label>
+                              <input type="date" class="form-control" name="tanggal_lahir" value="<?php echo $data['tanggal_lahir'] ?>" placeholder="masukkan tanggal lahir">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="ibu_kandung">Ibu Kandung</label>
+                              <input type="text" class="form-control" name="ibu_kandung" value="<?php echo $data['ibu_kandung'] ?>" placeholder="Ibu Kandung">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="jenis_kelamin">Jenis Kelamin</label>
+                              <select class="form-control" name="jenis_kelamin" required>
+                              <option value="LAKI-LAKI" <?php if($data['jenis_kelamin'] == "LAKI-LAKI" ){ echo "selected"; } ?> >LAKI-LAKI</option>
+                              <option value="PEREMPUAN" <?php if($data['jenis_kelamin'] == "PEREMPUAN" ){ echo "selected"; } ?> >PEREMPUAN</option>
+                              </select>    
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="jenis_pekerjaan">Jenis Pekerjaan</label>
+                              <select class="form-control" name="jenis_pekerjaan" required>
+                                <option>pilih jenis pekerjaan</option>
+                                <option value="AKUNTAS" <?php if($data['jenis_pekerjaan'] == "AKUNTAS" ){ echo "selected"; } ?> >AKUNTAS</option>
+                                <option value="ANGGOTA BPK" <?php if($data['jenis_pekerjaan'] == "ANGGOTA BPK" ){ echo "selected"; } ?> >ANGGOTA BPK</option>
+                                <option value="ANGGOTA DPD" <?php if($data['jenis_pekerjaan'] == "ANGGOTA DPD" ){ echo "selected"; } ?> >ANGGOTA DPD</option>
+                                <option value="ANGGOTA DPR RI" <?php if($data['jenis_pekerjaan'] == "ANGGOTA DPR RI" ){ echo "selected"; } ?>>ANGGOTA DPR RI</option>
+                                <option value="ANGGOTA DPRD KAB." <?php if($data['jenis_pekerjaan'] == "ANGGOTA DPRD KAB." ){ echo "selected"; } ?> >ANGGOTA DPRD KAB.</option>
+                                <option value="ANGGOTA DPRD PROP." <?php if($data['jenis_pekerjaan'] == "ANGGOTA DPRD PROP." ){ echo "selected"; } ?> >ANGGOTA DPRD PROP.</option>
+                                <option value="APOTOKER" <?php if($data['jenis_pekerjaan'] == "APOTEKER" ){ echo "selected"; } ?> >APOTEKER</option>
+                                <option value="ARSITEK" <?php if($data['jenis_pekerjaan'] == "ARSITEK" ){ echo "selected"; } ?>>ARSITEK</option>
+                                <option value="BELUM/TIDAK BEKERJA" <?php if($data['jenis_pekerjaan'] == "BELUM/TIDAK BEKERJA" ){ echo "selected"; } ?> >BELUM/TIDAK BERKERJA</option>
+                                <option value="BIARAWATI" <?php if($data['jenis_pekerjaan'] == "BIARAWATI" ){ echo "selected"; } ?> >BIARAWATI</option>
+                                <option value="BIDAN" <?php if($data['jenis_pekerjaan'] == "BIDAN" ){ echo "selected"; } ?> >BIDAN</option>
+                                <option value="BUPATI" <?php if($data['jenis_pekerjaan'] == "BUPATI" ){ echo "selected"; } ?> >BUPATI</option>
+                                <option value="BURUH HARIAN LEPAS" <?php if($data['jenis_pekerjaan'] == "BURUAN HARIAN LEPAS" ){ echo "selected"; } ?> >BURUH HARIAN LEPAS</option>
+                                <option value="BURUH NELAYAN/PERIKANAN" <?php if($data['jenis_pekerjaan'] == "BURUH NELAYAN/PERIKANAN" ){ echo "selected"; } ?>>BURUH NELAYAN/PERIKANAN</option>
+                                <option value="BURUH PERTENAKAN" <?php if($data['jenis_pekerjaan'] == "BURUH PERTENAKAN" ){ echo "selected"; } ?>>BURUH PERTENAKAN</option>
+                                <option value="BURUH TANI/PERKEBUNAN" <?php if($data['jenis_pekerjaan'] == "BURUH TANI/PERKEBUNAN" ){ echo "selected"; } ?> >BURUH TANI/PERKEBUNAN</option>
+                                <option value="DOKTER" <?php if($data['jenis_pekerjaan'] == "DOKTER" ){ echo "selected"; } ?> >DOKTER</option>
+                                <option value="DOSEN" <?php if($data['jenis_pekerjaan'] == "DOSEN" ){ echo "selected"; } ?> >DOSEN</option>
+                                <option value="DUTA BESAR" <?php if($data['jenis_pekerjaan'] == "DUTA BESAR" ){ echo "selected"; } ?> >DUTA BESAR</option>
+                                <option >GURU</option>
+                                <option >IMAM MASJID</option>
+                                <option >INDUSTRI</option>
+                                <option >JURU MASAK</option>
+                                <option >KARYAWAN BUMD</option>
+                                <option >KARYAWAN BUMN</option>
+                                <option >KARYAWAN HONORER</option>
+                                <option >KARYAWAN SWASTA</option>
+                                <option >KEPALA DESA</option>
+                                <option >KEPOLISIAN RI (POLRI}</option>
+                                <option >KONTRUKSI</option>
+                                <option >KONSULTAN</option>
+                                <option >MEKANIK</option>
+                                <option >MENGURUS RUMAH TANGGA</option>
+                                <option >NELAYAN/PERIKAN</option>
+                                <option >NOTARIS</option>
+                                <option >PARAJI</option>
+                                <option >PARANORMAL</option>
+                                <option >PASTOR</option>
+                                <option >PEDAGANG</option>
+                                <option >PEGAWAI NEGERI SIPIL (PNS)</option>
+                                <option >PEKERJAAN LAINNYA</option>
+                                <option >PELAJAR/MAHASISWA</option>
+                                <option >PELAUT</option>
+                                <option >PEMBANTU RUMAH TANGGA</option>
+                                <option >PENATA BUSANA</option>
+                                <option >PENATA RIAS</option>
+                                <option >PENATA RAMBUT</option>
+                                <option >PENDETA</option>
+                                <option >PENELITI</option>
+                                <option >PENGACARA</option>
+                                <option >PENSIUNAN</option>
+                                <option >PENTERJEMAH</option>
+                                <option >PENYIAR RADIO</option>
+                                <option >PENYIAR TELEVISI</option>
+                                <option >PERANCANG BUSANA</option>
+                                <option >PERANGKAT DESA</option>
+                                <option >PERAWAT</option>
+                                <option >PERDAGANGAN</option>
+                                <option >PETANI/PEKEBUN</option>
+                                <option >PETERNAK</option>
+                                <option >PIALANG</option>
+                                <option >PILOT</option>
+                                <option >PROMOTOR ACARA</option>
+                                <option >PSIKIATER/PSIKOLOG</option>
+                                <option >SENIMAN</option>
+                                <option >SOPIR</option>
+                                <option >TABIB</option>
+                                <option >TENTARA NASIONAL INDONESIA (TNI)</option>
+                                <option >TIDAK TERDEFINISI</option>
+                                <option >TRANSPORTASI</option>
+                                <option >TUKANG BATU</option>
+                                <option >TUKANG CUKUR</option>
+                                <option >TUKANG GIGI</option>
+                                <option >TUKANG JAHIT</option>
+                                <option >TUKANG KAYU</option>
+                                <option >TUKANG LAS/PANDAI BESI</option>
+                                <option >TUKANG LISTRIK</option>
+                                <option >TUKANG SOL SEPATU</option>
+                                <option >USTADZ/MUBALIGH</option>
+                                <option >WAKIL BUPATI</option>
+                                <option >WARTAWAN</option>
+                                <option >WIRASAWTA</option>
+                                
+                              </select> 
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="alamat">Alamat</label>
+                              <input type="text" class="form-control" name="alamat" value="<?php echo $data['alamat'] ?>" placeholder="Alamat">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="rt">RT</label>
+                              <input type="text" class="form-control" name="rt" value="<?php echo $data['rt'] ?>" placeholder="RT">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="rw">RW</label>
+                              <input type="text" class="form-control" name="rw" value="<?php echo $data['rw'] ?>" placeholder="RW">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="provinsi">Provinsi</label>
+                              <select class="form-control" name="provinsi" value="<?php echo $data['provinsi'] ?>" required>
+                                <option>pilih provinsi</option>
+                                <option >KEPULAUAN RIAU</option>
+                              </select> 
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="kabupaten">Kabupaten</label>
+                              <select class="form-control" name="kabupaten" value="<?php echo $data['kabupaten'] ?>" required>
+                                <option>pilih kabupaten</option>
+                                <option >KOTA TANJUNG PINANG</option>
+                              </select> 
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="kecamatan">Kecamatan</label>
+                              <select class="form-control" name="kecamatan" value="<?php echo $data['kecamatan'] ?>" required>
+                                <option>pilih kecamatan</option>
+                                <option >BUKIT BESTARI</option>
+                                <option >TANJUNG PINANG KOTA</option>
+                                <option >TANJUNG PINANG BARAT</option>
+                                <option >TANJUNG PINANG TIMUR</option>
+                              </select> 
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="kelurahan">Kelurahan</label>
+                              <select class="form-control" name="kelurahan" value="<?php echo $data['kelurahan'] ?>" required>
+                                <option>pilih kelurahan</option>
+                                <option >DOMPAK</option>
+                                <option >SEI JANG</option>
+                                <option >TANJUNG AYUN SAKTI</option>
+                                <option >TANJUNGPINANG TIMUR</option>
+                                <option >TANJUNG UNGGAT</option>
+                                <option >BUKIT CERMIN</option>
+                                <option >KAMPUNG BARU</option>
+                                <option >KEMBOJA</option>
+                                <option >TANJUNGPINANG BARAT</option>
+                                <option >KAMPUNG BUGIS</option>
+                                <option >PENYENGAT</option>
+                                <option >SENGGARANG</option>
+                                <option >TANJUNGPINANG KOTA</option>
+                                <option >AIR RAJA</option>
+                                <option >BATU IX</option>
+                                <option >KAMPUNG BULANG</option>
+                                <option >MELAYU KOTA PIRING</option>
+                                <option >PINANG KENCANA</option>
+                              </select> 
                             </div>
                             <?php
                               $namaKriteria = array();

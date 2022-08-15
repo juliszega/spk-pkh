@@ -70,14 +70,99 @@ if(isset($_POST['simpan'])){
                             <div class="form-group">
                               <label class="form-control-label" for="jenis_kelamin">Jenis Kelamin</label>
                               <select class="form-control" name="jenis_kelamin" required>
-                                <option>-----</option>
-                                <option >Laki-laki</option>
-                                <option>Perempuan</option>
+                                <option>jenis kelamin</option>
+                                <option >LAKI-LAKI</option>
+                                <option >PEREMPUAN</option>
                               </select>    
                             </div>
                             <div class="form-group">
                               <label class="form-control-label" for="jenis_pekerjaan">Jenis Pekerjaan</label>
-                              <input type="text" class="form-control" name="jenis_pekerjaan" placeholder="Jenis Pekerjaan">
+                              <select class="form-control" name="jenis_pekerjaan" required>
+                                <option>pilih jenis pekerjaan</option>
+                                <option >AKUNTAS</option>
+                                <option >ANGGOTA BPK</option>
+                                <option >ANGGOTA DPD</option>
+                                <option >ANGGOTA DPR RI</option>
+                                <option >ANGGOTA DPRD KAB.</option>
+                                <option >ANGGOTA DPRD PROP.</option>
+                                <option >APOTEKER</option>
+                                <option >ARSITEK</option>
+                                <option >BELUM/TIDAK BERKERJA</option>
+                                <option >BIARAWATI</option>
+                                <option >BIDAN</option>
+                                <option >BUPATI</option>
+                                <option >BURUH HARIAN LEPAS</option>
+                                <option >BURUH NELAYAN/PERIKANAN</option>
+                                <option >BURUH PERTENAKAN</option>
+                                <option >BURUH TANI/PERKEBUNAN</option>
+                                <option >DOKTER</option>
+                                <option >DOSEN</option>
+                                <option >DUTA BESAR</option>
+                                <option >GURU</option>
+                                <option >IMAM MASJID</option>
+                                <option >INDUSTRI</option>
+                                <option >JURU MASAK</option>
+                                <option >KARYAWAN BUMD</option>
+                                <option >KARYAWAN BUMN</option>
+                                <option >KARYAWAN HONORER</option>
+                                <option >KARYAWAN SWASTA</option>
+                                <option >KEPALA DESA</option>
+                                <option >KEPOLISIAN RI (POLRI}</option>
+                                <option >KONTRUKSI</option>
+                                <option >KONSULTAN</option>
+                                <option >MEKANIK</option>
+                                <option >MENGURUS RUMAH TANGGA</option>
+                                <option >NELAYAN/PERIKAN</option>
+                                <option >NOTARIS</option>
+                                <option >PARAJI</option>
+                                <option >PARANORMAL</option>
+                                <option >PASTOR</option>
+                                <option >PEDAGANG</option>
+                                <option >PEGAWAI NEGERI SIPIL (PNS)</option>
+                                <option >PEKERJAAN LAINNYA</option>
+                                <option >PELAJAR/MAHASISWA</option>
+                                <option >PELAUT</option>
+                                <option >PEMBANTU RUMAH TANGGA</option>
+                                <option >PENATA BUSANA</option>
+                                <option >PENATA RIAS</option>
+                                <option >PENATA RAMBUT</option>
+                                <option >PENDETA</option>
+                                <option >PENELITI</option>
+                                <option >PENGACARA</option>
+                                <option >PENSIUNAN</option>
+                                <option >PENTERJEMAH</option>
+                                <option >PENYIAR RADIO</option>
+                                <option >PENYIAR TELEVISI</option>
+                                <option >PERANCANG BUSANA</option>
+                                <option >PERANGKAT DESA</option>
+                                <option >PERAWAT</option>
+                                <option >PERDAGANGAN</option>
+                                <option >PETANI/PEKEBUN</option>
+                                <option >PETERNAK</option>
+                                <option >PIALANG</option>
+                                <option >PILOT</option>
+                                <option >PROMOTOR ACARA</option>
+                                <option >PSIKIATER/PSIKOLOG</option>
+                                <option >SENIMAN</option>
+                                <option >SOPIR</option>
+                                <option >TABIB</option>
+                                <option >TENTARA NASIONAL INDONESIA (TNI)</option>
+                                <option >TIDAK TERDEFINISI</option>
+                                <option >TRANSPORTASI</option>
+                                <option >TUKANG BATU</option>
+                                <option >TUKANG CUKUR</option>
+                                <option >TUKANG GIGI</option>
+                                <option >TUKANG JAHIT</option>
+                                <option >TUKANG KAYU</option>
+                                <option >TUKANG LAS/PANDAI BESI</option>
+                                <option >TUKANG LISTRIK</option>
+                                <option >TUKANG SOL SEPATU</option>
+                                <option >USTADZ/MUBALIGH</option>
+                                <option >WAKIL BUPATI</option>
+                                <option >WARTAWAN</option>
+                                <option >WIRASAWTA</option>
+                                
+                              </select> 
                             </div>
                             <div class="form-group">
                               <label class="form-control-label" for="alamat">Alamat</label>
@@ -93,19 +178,51 @@ if(isset($_POST['simpan'])){
                             </div>
                             <div class="form-group">
                               <label class="form-control-label" for="provinsi">Provinsi</label>
-                              <input type="text" class="form-control" name="provinsi" placeholder="masukkan Provinsi">
+                              <select class="form-control" name="provinsi" required>
+                                <option>pilih provinsi</option>
+                                <option >KEPULAUAN RIAU</option>
+                              </select> 
                             </div>
                             <div class="form-group">
                               <label class="form-control-label" for="kabupaten">Kabupaten</label>
-                              <input type="text" class="form-control" name="kabupaten" placeholder="masukkan kabupaten">
+                              <select class="form-control" name="kabupaten" required>
+                                <option>pilih kabupaten</option>
+                                <option >KOTA TANJUNG PINANG</option>
+                              </select> 
                             </div>
                             <div class="form-group">
                               <label class="form-control-label" for="kecamatan">Kecamatan</label>
-                              <input type="text" class="form-control" name="kecamatan" placeholder="masukkan kecamatan">
+                              <select class="form-control" name="kecamatan" required>
+                                <option>pilih kecamatan</option>
+                                <option >BUKIT BESTARI</option>
+                                <option >TANJUNG PINANG KOTA</option>
+                                <option >TANJUNG PINANG BARAT</option>
+                                <option >TANJUNG PINANG TIMUR</option>
+                              </select> 
                             </div>
                             <div class="form-group">
                               <label class="form-control-label" for="kelurahan">Kelurahan</label>
-                              <input type="text" class="form-control" name="kelurahan" placeholder="masukkan kelurahan">
+                              <select class="form-control" name="kelurahan" required>
+                                <option>pilih kelurahan</option>
+                                <option >DOMPAK</option>
+                                <option >SEI JANG</option>
+                                <option >TANJUNG AYUN SAKTI</option>
+                                <option >TANJUNGPINANG TIMUR</option>
+                                <option >TANJUNG UNGGAT</option>
+                                <option >BUKIT CERMIN</option>
+                                <option >KAMPUNG BARU</option>
+                                <option >KEMBOJA</option>
+                                <option >TANJUNGPINANG BARAT</option>
+                                <option >KAMPUNG BUGIS</option>
+                                <option >PENYENGAT</option>
+                                <option >SENGGARANG</option>
+                                <option >TANJUNGPINANG KOTA</option>
+                                <option >AIR RAJA</option>
+                                <option >BATU IX</option>
+                                <option >KAMPUNG BULANG</option>
+                                <option >MELAYU KOTA PIRING</option>
+                                <option >PINANG KENCANA</option>
+                              </select> 
                             </div>
                             <?php
                               $namaKriteria = array();
