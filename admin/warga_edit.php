@@ -10,7 +10,7 @@ if(isset($_POST['simpan'])){
   $ibu  = $_POST['ibu_kandung'];
   $jk  = $_POST['jenis_kelamin'];
   $jp  = $_POST['jenis_pekerjaan'];
-  $alamat  = $_POST['alamat'];
+  $almt  = $_POST['alamat'];
   $rt  = $_POST['rt'];
   $rw  = $_POST['rw'];
   $prov  = $_POST['provinsi'];
@@ -23,7 +23,7 @@ if(isset($_POST['simpan'])){
   $k4    = $_POST['k4'];
   $k5    = $_POST['k5'];
 
-  $simpan = mysqli_query($koneksi, "UPDATE data_warga SET NIK = '$nik', no_kk = '$nokk', nama_warga = '$nama', tempat_lahir = '$tl', tanggal_lahir = '$tgl', ibu_kandung = '$ibu', jenis_kelamin = '$jk', jenis_pekerjaan = '$jp', k1 = '$k1', k2 = '$k2', k3 = '$k3', k4 = '$k4', k5 = '$k5' WHERE id_warga = '$_GET[id_warga]'");
+  $simpan = mysqli_query($koneksi, "UPDATE data_warga SET NIK = '$nik', no_kk = '$nokk', nama_warga = '$nama', tempat_lahir = '$tl', tanggal_lahir = '$tgl', ibu_kandung = '$ibu', jenis_kelamin = '$jk', jenis_pekerjaan = '$jp', alamat = '$almt', rt = '$rt', rw = '$rw', provinsi = '$prov', kabupaten = '$kab', kecamatan = '$kec', kelurahan = '$kel', k1 = '$k1', k2 = '$k2', k3 = '$k3', k4 = '$k4', k5 = '$k5' WHERE id_warga = '$_GET[id_warga]'");
   echo "<script>alert('Data Berhasil Di Simpan');window.location='data_warga.php'</script>";
 
 }
@@ -98,69 +98,69 @@ if(isset($_POST['simpan'])){
                                 <option value="DOKTER" <?php if($data['jenis_pekerjaan'] == "DOKTER" ){ echo "selected"; } ?> >DOKTER</option>
                                 <option value="DOSEN" <?php if($data['jenis_pekerjaan'] == "DOSEN" ){ echo "selected"; } ?> >DOSEN</option>
                                 <option value="DUTA BESAR" <?php if($data['jenis_pekerjaan'] == "DUTA BESAR" ){ echo "selected"; } ?> >DUTA BESAR</option>
-                                <option >GURU</option>
-                                <option >IMAM MASJID</option>
-                                <option >INDUSTRI</option>
-                                <option >JURU MASAK</option>
-                                <option >KARYAWAN BUMD</option>
-                                <option >KARYAWAN BUMN</option>
-                                <option >KARYAWAN HONORER</option>
-                                <option >KARYAWAN SWASTA</option>
-                                <option >KEPALA DESA</option>
-                                <option >KEPOLISIAN RI (POLRI}</option>
-                                <option >KONTRUKSI</option>
-                                <option >KONSULTAN</option>
-                                <option >MEKANIK</option>
-                                <option >MENGURUS RUMAH TANGGA</option>
-                                <option >NELAYAN/PERIKAN</option>
-                                <option >NOTARIS</option>
-                                <option >PARAJI</option>
-                                <option >PARANORMAL</option>
-                                <option >PASTOR</option>
-                                <option >PEDAGANG</option>
-                                <option >PEGAWAI NEGERI SIPIL (PNS)</option>
-                                <option >PEKERJAAN LAINNYA</option>
-                                <option >PELAJAR/MAHASISWA</option>
-                                <option >PELAUT</option>
-                                <option >PEMBANTU RUMAH TANGGA</option>
-                                <option >PENATA BUSANA</option>
-                                <option >PENATA RIAS</option>
-                                <option >PENATA RAMBUT</option>
-                                <option >PENDETA</option>
-                                <option >PENELITI</option>
-                                <option >PENGACARA</option>
-                                <option >PENSIUNAN</option>
-                                <option >PENTERJEMAH</option>
-                                <option >PENYIAR RADIO</option>
-                                <option >PENYIAR TELEVISI</option>
-                                <option >PERANCANG BUSANA</option>
-                                <option >PERANGKAT DESA</option>
-                                <option >PERAWAT</option>
-                                <option >PERDAGANGAN</option>
-                                <option >PETANI/PEKEBUN</option>
-                                <option >PETERNAK</option>
-                                <option >PIALANG</option>
-                                <option >PILOT</option>
-                                <option >PROMOTOR ACARA</option>
-                                <option >PSIKIATER/PSIKOLOG</option>
-                                <option >SENIMAN</option>
-                                <option >SOPIR</option>
-                                <option >TABIB</option>
-                                <option >TENTARA NASIONAL INDONESIA (TNI)</option>
-                                <option >TIDAK TERDEFINISI</option>
-                                <option >TRANSPORTASI</option>
-                                <option >TUKANG BATU</option>
-                                <option >TUKANG CUKUR</option>
-                                <option >TUKANG GIGI</option>
-                                <option >TUKANG JAHIT</option>
-                                <option >TUKANG KAYU</option>
-                                <option >TUKANG LAS/PANDAI BESI</option>
-                                <option >TUKANG LISTRIK</option>
-                                <option >TUKANG SOL SEPATU</option>
-                                <option >USTADZ/MUBALIGH</option>
-                                <option >WAKIL BUPATI</option>
-                                <option >WARTAWAN</option>
-                                <option >WIRASAWTA</option>
+                                <option value="GURU" <?php if($data['jenis_pekerjaan'] == "GURU" ){ echo "selected"; } ?>>GURU</option>
+                                <option value="IMAM MASJID" <?php if($data['jenis_pekerjaan'] == "IMAM MASJID" ){ echo "selected"; } ?> >IMAM MASJID</option>
+                                <option value="INDUSTRI" <?php if($data['jenis_pekerjaan'] == "INDUSTRI" ){ echo "selected"; } ?> >INDUSTRI</option>
+                                <option value="JURU MASAK" <?php if($data['jenis_pekerjaan'] == "JURU MASAK" ){ echo "selected"; } ?> >JURU MASAK</option>
+                                <option value="KARYAWAN BUMD" <?php if($data['jenis_pekerjaan'] == "KARYAWAN BMUD" ){ echo "selected"; } ?> >KARYAWAN BUMD</option>
+                                <option value="KARYAWAN BUMN" <?php if($data['jenis_pekerjaan'] == "KARYAWAN BUMN" ){ echo "selected"; } ?> >KARYAWAN BUMN</option>
+                                <option value="KARYAWAN HONORER" <?php if($data['jenis_pekerjaan'] == "KARYAWAN HONORER" ){ echo "selected"; } ?> >KARYAWAN HONORER</option>
+                                <option value="KARYAWAN SWASTA" <?php if($data['jenis_pekerjaan'] == "KARYAWAN SWASTA" ){ echo "selected"; } ?> >KARYAWAN SWASTA</option>
+                                <option value="KEPALA DESA" <?php if($data['jenis_pekerjaan'] == "KEPALA DESA" ){ echo "selected"; } ?> >KEPALA DESA</option>
+                                <option value="KEPOLISIAN RI (POLRI)" <?php if($data['jenis_pekerjaan'] == "KEPOLISIAN RI (POLRI)" ){ echo "selected"; } ?> >KEPOLISIAN RI (POLRI}</option>
+                                <option value="KONTRUKSI" <?php if($data['jenis_pekerjaan'] == "KONTRUKSI" ){ echo "selected"; } ?> >KONTRUKSI</option>
+                                <option value="KONSULTAN" <?php if($data['jenis_pekerjaan'] == "KONSULTAN" ){ echo "selected"; } ?> >KONSULTAN</option>
+                                <option value="MEKANIK" <?php if($data['jenis_pekerjaan'] == "MEKANIK" ){ echo "selected"; } ?> >MEKANIK</option>
+                                <option value="MENGURUS RUMAH TANGGA" <?php if($data['jenis_pekerjaan'] == "MENGURUS RUMAH TANGGA" ){ echo "selected"; } ?> >MENGURUS RUMAH TANGGA</option>
+                                <option value="NELAYAN/PERIKANAN" <?php if($data['jenis_pekerjaan'] == "NELAYAN/PERIKANAN" ){ echo "selected"; } ?> >NELAYAN/PERIKAN</option>
+                                <option value="NOTARIS" <?php if($data['jenis_pekerjaan'] == "NOTARIS" ){ echo "selected"; } ?> >NOTARIS</option>
+                                <option value="PARAJI" <?php if($data['jenis_pekerjaan'] == "PARAJI" ){ echo "selected"; } ?> >PARAJI</option>
+                                <option value="PARANORMAL" <?php if($data['jenis_pekerjaan'] == "PARANORMAL" ){ echo "selected"; } ?> >PARANORMAL</option>
+                                <option value="PASTOR" <?php if($data['jenis_pekerjaan'] == "PASTOR" ){ echo "selected"; } ?> >PASTOR</option>
+                                <option value="PEDAGANG" <?php if($data['jenis_pekerjaan'] == "PEDAGANG" ){ echo "selected"; } ?> >PEDAGANG</option>
+                                <option value="PEGAWAI NEGERU SIPIL (PNS)" <?php if($data['jenis_pekerjaan'] == "PEGAWAI NEGERI SIPIL (PNS)" ){ echo "selected"; } ?> >PEGAWAI NEGERI SIPIL (PNS)</option>
+                                <option value="PEKERJAAN LAINNYA" <?php if($data['jenis_pekerjaan'] == "PEKERJAAN LAINNYA" ){ echo "selected"; } ?> >PEKERJAAN LAINNYA</option>
+                                <option value="PELAJAR/MAHASISWA" <?php if($data['jenis_pekerjaan'] == "PELAJAR/MAHASISWA" ){ echo "selected"; } ?> >PELAJAR/MAHASISWA</option>
+                                <option value="PELAUT" <?php if($data['jenis_pekerjaan'] == "PELAUT" ){ echo "selected"; } ?> >PELAUT</option>
+                                <option value="PEMBANTU RUMAH TANGGA" <?php if($data['jenis_pekerjaan'] == "PEMBANTU RUMAH TANGGA" ){ echo "selected"; } ?> >PEMBANTU RUMAH TANGGA</option>
+                                <option value="PENATA BUSANA" <?php if($data['jenis_pekerjaan'] == "PENATA BUSANA" ){ echo "selected"; } ?> >PENATA BUSANA</option>
+                                <option value="PENATA RIAS" <?php if($data['jenis_pekerjaan'] == "PENATA RIAS" ){ echo "selected"; } ?> >PENATA RIAS</option>
+                                <option value="PENATA RAMBUT" <?php if($data['jenis_pekerjaan'] == "PENATA RAMBUT" ){ echo "selected"; } ?> >PENATA RAMBUT</option>
+                                <option value="PENDETA" <?php if($data['jenis_pekerjaan'] == "PENDETA" ){ echo "selected"; } ?> >PENDETA</option>
+                                <option value="PENELITI" <?php if($data['jenis_pekerjaan'] == "PENELITI" ){ echo "selected"; } ?> >PENELITI</option>
+                                <option value="PENGACARA" <?php if($data['jenis_pekerjaan'] == "PENGACARA" ){ echo "selected"; } ?> >PENGACARA</option>
+                                <option value="PENSIUNAN" <?php if($data['jenis_pekerjaan'] == "PENSIUNAN" ){ echo "selected"; } ?> >PENSIUNAN</option>
+                                <option value="PENTERJEMAH" <?php if($data['jenis_pekerjaan'] == "PENTERJEMAH" ){ echo "selected"; } ?> >PENTERJEMAH</option>
+                                <option value="PENYIAR RADIO" <?php if($data['jenis_pekerjaan'] == "PENYIAR RADIO" ){ echo "selected"; } ?> >PENYIAR RADIO</option>
+                                <option value="PENYIAR TELEVISI" <?php if($data['jenis_pekerjaan'] == "PENYIAR TELEVISI" ){ echo "selected"; } ?> >PENYIAR TELEVISI</option>
+                                <option value="PERANCANG BUSANA" <?php if($data['jenis_pekerjaan'] == "PERANCANG BUSANA" ){ echo "selected"; } ?> >PERANCANG BUSANA</option>
+                                <option value="PERANGKAT DESA" <?php if($data['jenis_pekerjaan'] == "PERANGKAT DESA" ){ echo "selected"; } ?> >PERANGKAT DESA</option>
+                                <option value="PERAWAT" <?php if($data['jenis_pekerjaan'] == "PERAWAT" ){ echo "selected"; } ?> >PERAWAT</option>
+                                <option value="PERDAGANGAN" <?php if($data['jenis_pekerjaan'] == "PERDAGANGAN" ){ echo "selected"; } ?> >PERDAGANGAN</option>
+                                <option value="PETANI/PEKEBUN" <?php if($data['jenis_pekerjaan'] == "PETANI/PEKEBUN" ){ echo "selected"; } ?> >PETANI/PEKEBUN</option>
+                                <option value="PETERNAK" <?php if($data['jenis_pekerjaan'] == "PETERNAK" ){ echo "selected"; } ?> >PETERNAK</option>
+                                <option value="PIALANG" <?php if($data['jenis_pekerjaan'] == "PIALANG" ){ echo "selected"; } ?> >PIALANG</option>
+                                <option value="PILOT" <?php if($data['jenis_pekerjaan'] == "PILOT" ){ echo "selected"; } ?> >PILOT</option>
+                                <option value="PROMOTOR ACARA" <?php if($data['jenis_pekerjaan'] == "PEMOTOR ACARA" ){ echo "selected"; } ?> >PROMOTOR ACARA</option>
+                                <option value="PSIKIATER/PSIKOLOG" <?php if($data['jenis_pekerjaan'] == "" ){ echo "selected"; } ?> >PSIKIATER/PSIKOLOG</option>
+                                <option value="SENIMAN" <?php if($data['jenis_pekerjaan'] == "SENIMAN" ){ echo "selected"; } ?> >SENIMAN</option>
+                                <option value="SOPIR" <?php if($data['jenis_pekerjaan'] == "SOPIR" ){ echo "selected"; } ?> >SOPIR</option>
+                                <option value="TABIB" <?php if($data['jenis_pekerjaan'] == "TABIB" ){ echo "selected"; } ?> >TABIB</option>
+                                <option value="TENTARA NASIONAL INDONESIA (TNI)" <?php if($data['jenis_pekerjaan'] == "TENTARA NASIONAL INDONESIA (TNI)" ){ echo "selected"; } ?> >TENTARA NASIONAL INDONESIA (TNI)</option>
+                                <option value="TIDAK TERDEFINISI" <?php if($data['jenis_pekerjaan'] == "TIDAK TERDEFINISI" ){ echo "selected"; } ?> >TIDAK TERDEFINISI</option>
+                                <option value="TRANSPORTASI" <?php if($data['jenis_pekerjaan'] == "TRANSPORTASI" ){ echo "selected"; } ?> >TRANSPORTASI</option>
+                                <option value="TUKANG BATU" <?php if($data['jenis_pekerjaan'] == "TUKANG BATU" ){ echo "selected"; } ?> >TUKANG BATU</option>
+                                <option value="TUKANG CUKUR" <?php if($data['jenis_pekerjaan'] == "TUKANG CUKUR" ){ echo "selected"; } ?> >TUKANG CUKUR</option>
+                                <option value="TUKANG GIGI" <?php if($data['jenis_pekerjaan'] == "TUKANG GIGI" ){ echo "selected"; } ?> >TUKANG GIGI</option>
+                                <option value="TUKANG JAHIT" <?php if($data['jenis_pekerjaan'] == "TUKANG JAHIT" ){ echo "selected"; } ?> >TUKANG JAHIT</option>
+                                <option value="TUKANG KAYU" <?php if($data['jenis_pekerjaan'] == "TUKANG KAYU" ){ echo "selected"; } ?> >TUKANG KAYU</option>
+                                <option value="TUKANG LAS/PANDAI BESI" <?php if($data['jenis_pekerjaan'] == "TUKANG LAS/PANDAI BESI" ){ echo "selected"; } ?> >TUKANG LAS/PANDAI BESI</option>
+                                <option value="TUKANG LISTRIK" <?php if($data['jenis_pekerjaan'] == "TUKANG LISTRIK" ){ echo "selected"; } ?> >TUKANG LISTRIK</option>
+                                <option value="TUKANG SOL SEPATU" <?php if($data['jenis_pekerjaan'] == "TUKANG SOL SEPATU" ){ echo "selected"; } ?> >TUKANG SOL SEPATU</option>
+                                <option value="USTADZ/MUBALIGH" <?php if($data['jenis_pekerjaan'] == "USTADZ/MUBALIGH" ){ echo "selected"; } ?> >USTADZ/MUBALIGH</option>
+                                <option value="WAKIL BUPATI" <?php if($data['jenis_pekerjaan'] == "WAKIL BUPATI" ){ echo "selected"; } ?> >WAKIL BUPATI</option>
+                                <option value="WARTAWAN" <?php if($data['jenis_pekerjaan'] == "WARTAWAN" ){ echo "selected"; } ?> >WARTAWAN</option>
+                                <option value="WIRASWASTA" <?php if($data['jenis_pekerjaan'] == "WIRASWASTA" ){ echo "selected"; } ?> >WIRASWASTA</option>
                                 
                               </select> 
                             </div>
